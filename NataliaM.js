@@ -116,7 +116,21 @@ let containerTestObject = {
 
 ///// Counter[cantidadvocales, cantidadletras] 
 function lettersCounter(objectContainer) {
+    let vowels= "aeiou";
+    let counter=[0,0];
+    for (let i = 0; i < objectContainer.list.length; i++) {
+        let word = objectContainer.list[i];
+        for (let j = 0; j < word.length; j++) {
+            if(vowels.includes(word.charAt(j).toLowerCase())){
+                counter[0]+=1;
+            }else{
+                counter[1]+=1;
+            }
+        } 
+    } 
+console.log(counter);
 }
+lettersCounter(containerTestObject);
 
 //6
 /*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/
