@@ -133,12 +133,13 @@ console.log(counter);
 lettersCounter(containerTestObject);
 
 //6
-/*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/
+//*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/
 let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
 let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
-
+    let arrayJ = listA.concat(listB);
+    console.log(arrayJ);
 }
 arrayJoiner(wordArrayA, wordArrayB);
 
