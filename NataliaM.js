@@ -81,7 +81,7 @@ entregado por parámetro y puede variar en cantidad de palabras
 del arreglo de entrada libremente, debe retornar un objeto
 con los valores mencionados*/
 
-let testSampleList = [
+let words = [
     "Capitan",
     "Comandante",
     "Teniente",
@@ -91,9 +91,29 @@ let testSampleList = [
     "Zar",
 ];
 
-function wordLengthClassifier(wordsList) {
-    // :)
+function wordLengthClassifier(word) {
+    let totalDeLetras = 0;
+    const sortedWords = word.sort((wordA, wordB) => {
+        if (wordA.length < wordB.length) {
+            return -1;
+        } else if (wordA.length > wordB.length) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    });
+
+    sortedWords.forEach(word => totalDeLetras += word.length);
+    const letras = totalDeLetras / sortedWords.length;
+    return {
+        palabraCorta: sortedWords[0],
+        palabraLarga: sortedWords[sortedWords.length - 1],
+        letras
+    };
+
 }
+console.log(wordLengthClassifier(words))
 
 // punto 4
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
