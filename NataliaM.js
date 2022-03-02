@@ -11,21 +11,21 @@ function reemplazarLetras(word) {
         let esIndex = true;
 
         while (esIndex) {
-            let random =  Math.random()*(palabraLarga-1);
-            let randomIndex = Math.round(random); 
-            if(indice.includes(randomIndex)){
-                random =  Math.random()*(palabraLarga-1);
-                randomIndex = Math.round(random); 
-            }else{
+            let random = Math.random() * (palabraLarga - 1);
+            let randomIndex = Math.round(random);
+            if (indice.includes(randomIndex)) {
+                random = Math.random() * (palabraLarga - 1);
+                randomIndex = Math.round(random);
+            } else {
                 indice.push(randomIndex)
                 esIndex = false;
             }
         }
-        
-        console.log(word[ indice[index] ])
- 
+
+        console.log(word[indice[index]])
+
     }
-    
+
     console.log(indice)
 }
 
@@ -56,15 +56,15 @@ function normalizeWord(word) {
     return word.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("0", "o").toUpperCase();
 }
 
-function buscaPalabraEnLista(word, wordList){
+function buscaPalabraEnLista(word, wordList) {
     let currentWord = word;
     let normalizar = normalizeWord(currentWord);
     const normalizarLista = [];
     for (let index = 0; index < wordList.length; index++) {
         normalizarLista.push(normalizeWord(wordList[index]))
     }
-    
-    
+
+
     console.log(normalizarLista.includes(normalizar), `palabra: ${normalizar}`, normalizarLista)
     // console.log(newWord)
 }
@@ -104,38 +104,53 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-   // :)
+
+    console.log(word.toLowerCase())
+    let palabraPalindromo = word.toLowerCase().split("").reserve().join("");
+    if (palabraPalindromo === word.toLowerCase()) {
+
+        console.log("la palabra" + word + "es palindroma")
+
+    } else {
+
+        console.log("la palabra" + word + "bo es palindroma")
+    }
 }
+
+palindromeVerifier(onVerificationWordA)
+palindromeVerifier(onVerificationWordB)
+palindromeVerifier(onVerificationWordC)
+palindromeVerifier(onVerificationWordD)
 
 // 5
 /*Dado un objeto que contiene una lista de palabras contar el
 número de letras vocales y consonantes y retornarlo en un arreglo de 2 posiciones.*/
 let containerTestObject = {
-    list:["Cumbamba", "Oreja", "Nariz", "Ojo", "Lengua", "Diente"]
+    list: ["Cumbamba", "Oreja", "Nariz", "Ojo", "Lengua", "Diente"]
 }
 
 ///// Counter[cantidadvocales, cantidadletras] 
 function lettersCounter(objectContainer) {
-    let vowels= "aeiou";
-    let counter=[0,0];
+    let vowels = "aeiou";
+    let counter = [0, 0];
     for (let i = 0; i < objectContainer.list.length; i++) {
         let word = objectContainer.list[i];
         for (let j = 0; j < word.length; j++) {
-            if(vowels.includes(word.charAt(j).toLowerCase())){
-                counter[0]+=1;
-            }else{
-                counter[1]+=1;
+            if (vowels.includes(word.charAt(j).toLowerCase())) {
+                counter[0] += 1;
+            } else {
+                counter[1] += 1;
             }
-        } 
-    } 
-console.log(counter);
+        }
+    }
+    console.log(counter);
 }
 lettersCounter(containerTestObject);
 
 //6
 //*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/
-let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
-let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
+let wordArrayA = ["hola", "¿", "cómo", "estás", "?"];
+let wordArrayB = ["te", "ves", "igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
     let arrayJ = listA.concat(listB);
@@ -148,10 +163,10 @@ arrayJoiner(wordArrayA, wordArrayB);
 son anagramas de una palabra base (recibida como parámetro), retorne las posiciones en un arreglo.*/
 
 let testWordToExplore = "amar";
-let wordsToVerify = ["amar", "arma", "rana" , "mara", "rama", "roma", "amor", "ramon", "omar"];
+let wordsToVerify = ["amar", "arma", "rana", "mara", "rama", "roma", "amor", "ramon", "omar"];
 
 function anagramVerifier(wordToExplore, listOfWords) {
-   // :)
+    // :)
 }
 
 // 8
@@ -159,12 +174,12 @@ function anagramVerifier(wordToExplore, listOfWords) {
 arreglo que contiene las palabras sin vocales.*/
 
 let testObjMultiContainer = {
-    listA : ["piraña", "cachama", "tilapia", "trucha", "carpa", "salmón"],
-    listB : ["rinoceronte", "elefante", "jirafa", "tigre", "gacela", "ñú"]
+    listA: ["piraña", "cachama", "tilapia", "trucha", "carpa", "salmón"],
+    listB: ["rinoceronte", "elefante", "jirafa", "tigre", "gacela", "ñú"]
 };
 
 function vocalsRemoverFromObject(objectMultiContainer) {
-    // :)
+
 }
 
 console.log(vocalsRemoverFromObject(testObjMultiContainer));
@@ -185,7 +200,7 @@ versión al revés de alguna de las palabras de una segunda lista,
 debe contar las identificadas y retornar un objeto con ese conteo.*/
 
 
-let testListA = ["amor", "sabor", "calor","firma", "mara"];
+let testListA = ["amor", "sabor", "calor", "firma", "mara"];
 let testListB = ["roma", "robar", "portar", "arma", "mora"];
 
 function doubleListVerifier(listA, listB) {
