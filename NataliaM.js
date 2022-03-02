@@ -1,19 +1,42 @@
 'use strict'
-
-/*Dada una cadena de texto (string) separe y muestre en consola los caracteres de forma desordenada uno por línea, 1 caracter a la vez.*/
-
+// 1 Punto
+/* Dada una cadena de texto (string) separe y muestre en consola los caracteres de forma desordenada uno por línea, 1 caracter a la vez.*/
+// foreach
 let testWord = "esternocleidomastoideo";
-function wordCutter(word) {
-   // :)
+
+function reemplazarLetras(word) {
+    const palabraLarga = word.length;
+    const indice = [];
+    for (let index = 0; index < palabraLarga; index++) {
+        let esIndex = true;
+
+        while (esIndex) {
+            let random =  Math.random()*(palabraLarga-1);
+            let randomIndex = Math.round(random); 
+            if(indice.includes(randomIndex)){
+                random =  Math.random()*(palabraLarga-1);
+                randomIndex = Math.round(random); 
+            }else{
+                indice.push(randomIndex)
+                esIndex = false;
+            }
+        }
+        
+        console.log(word[ indice[index] ])
+ 
+    }
+    
+    console.log(indice)
 }
-wordCutter(testWord);
+
+reemplazarLetras("esternocleidomastoideo")
 
 /*Dado un string buscar en un listado e indicar si se encuentra o no
 ahí contenido, debe soportar mayúsculas y minúsculas sin importar
 la variación, es lo mismo Carro, CARRO o carro.*/
 
 let testTargetWordA = "Sabrosura";
-let testTargetWordB = "Sazón";
+let testTargetWordB = "Sazon";
 let testTargetWordC = "Tempurado";
 let testWordsList = [
     "Sabr0sura",
@@ -24,14 +47,14 @@ let testWordsList = [
     "Chevere",
     "Meneo",
 ];
-
+ 
+let wordsList = testWordsList;
+let targetWord = testTargetWordB;
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
+
    // :)
 }
-
-
-
 /*Dado un arreglo de strings, retornar la palabra más larga,
 la más corta y el tamaño promedio, el arreglo debe ser
 entregado por parámetro y puede variar en cantidad de palabras
@@ -70,8 +93,9 @@ número de letras vocales y consonantes y retornarlo en un arreglo de 2 posicion
 let containerTestObject = {
     list:["Cumbamba", "Oreja", "Nariz", "Ojo", "Lengua", "Diente"]
 }
+
+///// Counter[cantidadvocales, cantidadletras] 
 function lettersCounter(objectContainer) {
-   // :)
 }
 
 
@@ -80,9 +104,9 @@ let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
 let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
- // :)
-}
 
+}
+arrayJoiner(wordArrayA, wordArrayB);
 
 /*Dado un arreglo de strings indicar qué posiciones del arreglo
 son anagramas de una palabra base (recibida como parámetro), retorne las posiciones en un arreglo.*/
