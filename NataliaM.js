@@ -1,4 +1,6 @@
 'use strict'
+// Natalia Martinez Rincón ;D
+
 // 1 Punto
 /* Dada una cadena de texto (string) separe y muestre en consola los caracteres de forma desordenada uno por línea, 1 caracter a la vez.*/
 // foreach
@@ -124,13 +126,13 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-  console.log(word.toLowerCase())
-  let palabraPalindroma = word.toLowerCase().split("").reverse().join("");
-  if (palabraPalindroma === word.toLowerCase()){
-      console.log("La palabra "+ word+ " es palindroma")
-  }else{
-    console.log("La palabra "+ word+ " no es palindroma")
-  }
+    console.log(word.toLowerCase())
+    let palabraPalindroma = word.toLowerCase().split("").reverse().join("");
+    if (palabraPalindroma === word.toLowerCase()) {
+        console.log("La palabra " + word + " es palindroma")
+    } else {
+        console.log("La palabra " + word + " no es palindroma")
+    }
 }
 palindromeVerifier(onVerificationWordA);
 palindromeVerifier(onVerificationWordB);
@@ -183,15 +185,15 @@ let wordsToVerify = ["amar", "arma", "rana", "mara", "rama", "roma", "amor", "ra
 function anagramVerifier(wordToExplore, listOfWords) {
     let posiciones = [];
     for (let i = 0; i < listOfWords.length; i++) {
-        if(listOfWords[i]!== wordToExplore){
+        if (listOfWords[i] !== wordToExplore) {
             let pos = listOfWords.indexOf(listOfWords[i])
             posiciones.push(pos)
         }
-        
+
     }
-return posiciones;
+    return posiciones;
 }
-console.log(anagramVerifier(testWordToExplore,wordsToVerify));
+console.log(anagramVerifier(testWordToExplore, wordsToVerify));
 
 // 8
 /*Dado un objeto que contiene 2 arreglos, retornar un objeto con 1
@@ -208,9 +210,9 @@ function vocalsRemoverFromObject(objectMultiContainer) {
     for (let i = 0; i < unirPalabras.length; i++) {
         const posicionActual = unirPalabras[i].split('');
         for (let index = 0; index < unirPalabras[i].length; index++) {
-           if(posicionActual[index]==="a"|| posicionActual[index]==="e"||posicionActual[index]==="i"||posicionActual[index]==="o"||posicionActual[index]==="u"){
-            posicionActual.splice(index,1);
-           }
+            if (posicionActual[index] === "a" || posicionActual[index] === "e" || posicionActual[index] === "i" || posicionActual[index] === "o" || posicionActual[index] === "u") {
+                posicionActual.splice(index, 1);
+            }
         }
         resultado.push(posicionActual.join(''))
     }
@@ -226,19 +228,19 @@ let someWordsToTest = ["compañeros", "estudiantes", "señores", "amigos", "grad
 
 function lastVocalReplacer(words) {
     let vowels = "aeiou";
-    let array=[];
-    let counter=0;
+    let array = [];
+    let counter = 0;
     for (let i = 0; i < words.length; i++) {
-        let word=words[i];
-        let wordArray=word.split("");
-        for (let j = words[i].length-1; j > 0 ; j--) {
-        
-            if(vowels.includes(word.charAt(j))){
-                wordArray[j]= "x";
-                array[counter]= wordArray.join('');
+        let word = words[i];
+        let wordArray = word.split("");
+        for (let j = words[i].length - 1; j > 0; j--) {
+
+            if (vowels.includes(word.charAt(j))) {
+                wordArray[j] = "x";
+                array[counter] = wordArray.join('');
                 counter++;
                 break;
-            } 
+            }
         }
     }
     console.log(array);
@@ -257,29 +259,29 @@ let testListA = ["amor", "sabor", "calor", "firma", "mara"];
 let testListB = ["roma", "robar", "portar", "arma", "mora"];
 
 function doubleListVerifier(listA, listB) {
-    let reverse=false;
-    let counter ={ 
+    let reverse = false;
+    let counter = {
         repeated: 0
     };
 
     for (let i = 0; i < listA.length; i++) {
-        reverse=false;
-        let wordA= listA[i];
+        reverse = false;
+        let wordA = listA[i];
         for (let j = 0; j < listB.length; j++) {
-            let wordB= listB[j];
+            let wordB = listB[j];
 
             for (let k = 0; k < wordB.length; k++) {
-                if(wordA.charAt(k) == wordB.charAt((wordB.length-1)-k)){
-                     reverse = true;
+                if (wordA.charAt(k) == wordB.charAt((wordB.length - 1) - k)) {
+                    reverse = true;
                 }
             }
         }
 
-        if(reverse){
-            counter.repeated+=1;
+        if (reverse) {
+            counter.repeated += 1;
         }
     }
     console.log(counter);
 }
 
-doubleListVerifier(testListA,testListB);
+doubleListVerifier(testListA, testListB);
