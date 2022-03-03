@@ -216,8 +216,26 @@ console.log(vocalsRemoverFromObject(testObjMultiContainer));
 let someWordsToTest = ["compañeros", "estudiantes", "señores", "amigos", "graduandos", "artistas", "universitarios"];
 
 function lastVocalReplacer(words) {
-    // :)
+    let vowels = "aeiou";
+    let array=[];
+    let counter=0;
+    for (let i = 0; i < words.length; i++) {
+        let word=words[i];
+        let wordArray=word.split("");
+        for (let j = words[i].length-1; j > 0 ; j--) {
+        
+            if(vowels.includes(word.charAt(j))){
+                wordArray[j]= "x";
+                array[counter]= wordArray.join('');
+                counter++;
+                break;
+            } 
+        }
+    }
+    console.log(someWordsToTest);
 }
+
+lastVocalReplacer(someWordsToTest);
 
 
 // punto 10
@@ -230,5 +248,29 @@ let testListA = ["amor", "sabor", "calor", "firma", "mara"];
 let testListB = ["roma", "robar", "portar", "arma", "mora"];
 
 function doubleListVerifier(listA, listB) {
-    // :)
+    let reverse=false;
+    let counter ={ 
+        repeated: 0
+    };
+
+    for (let i = 0; i < listA.length; i++) {
+        reverse=false;
+        let wordA= listA[i];
+        for (let j = 0; j < listB.length; j++) {
+            let wordB= listB[j];
+
+            for (let k = 0; k < wordB.length; k++) {
+                if(wordA.charAt(k) == wordB.charAt((wordB.length-1)-k)){
+                     reverse = true;
+                }
+            }
+        }
+
+        if(reverse){
+            counter.repeated+=1;
+        }
+    }
+    console.log(counter);
 }
+
+doubleListVerifier(testListA,testListB);
