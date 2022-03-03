@@ -124,23 +124,18 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-
-    console.log(word.toLowerCase())
-    let palabraPalindromo = word.toLowerCase().split("").reserve().join("");
-    if (palabraPalindromo === word.toLowerCase()) {
-
-        console.log("la palabra" + word + "es palindroma")
-
-    } else {
-
-        console.log("la palabra" + word + "bo es palindroma")
-    }
+  console.log(word.toLowerCase())
+  let palabraPalindroma = word.toLowerCase().split("").reverse().join("");
+  if (palabraPalindroma === word.toLowerCase()){
+      console.log("La palabra "+ word+ " es palindroma")
+  }else{
+    console.log("La palabra "+ word+ " no es palindroma")
+  }
 }
-
-palindromeVerifier(onVerificationWordA)
-palindromeVerifier(onVerificationWordB)
-palindromeVerifier(onVerificationWordC)
-palindromeVerifier(onVerificationWordD)
+palindromeVerifier(onVerificationWordA);
+palindromeVerifier(onVerificationWordB);
+palindromeVerifier(onVerificationWordC);
+palindromeVerifier(onVerificationWordD);
 
 // 5
 /*Dado un objeto que contiene una lista de palabras contar el
@@ -199,7 +194,18 @@ let testObjMultiContainer = {
 };
 
 function vocalsRemoverFromObject(objectMultiContainer) {
-
+    let unirPalabras = objectMultiContainer.listA.concat(objectMultiContainer.listB)
+    const resultado = []
+    for (let i = 0; i < unirPalabras.length; i++) {
+        const posicionActual = unirPalabras[i].split('');
+        for (let index = 0; index < unirPalabras[i].length; index++) {
+           if(posicionActual[index]==="a"|| posicionActual[index]==="e"||posicionActual[index]==="i"||posicionActual[index]==="o"||posicionActual[index]==="u"){
+            posicionActual.splice(index,1);
+           }
+        }
+        resultado.push(posicionActual.join(''))
+    }
+    console.log(resultado)
 }
 
 console.log(vocalsRemoverFromObject(testObjMultiContainer));
