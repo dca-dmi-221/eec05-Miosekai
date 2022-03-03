@@ -181,8 +181,17 @@ let testWordToExplore = "amar";
 let wordsToVerify = ["amar", "arma", "rana", "mara", "rama", "roma", "amor", "ramon", "omar"];
 
 function anagramVerifier(wordToExplore, listOfWords) {
-    // :)
+    let posiciones = [];
+    for (let i = 0; i < listOfWords.length; i++) {
+        if(listOfWords[i]!== wordToExplore){
+            let pos = listOfWords.indexOf(listOfWords[i])
+            posiciones.push(pos)
+        }
+        
+    }
+return posiciones;
 }
+console.log(anagramVerifier(testWordToExplore,wordsToVerify));
 
 // 8
 /*Dado un objeto que contiene 2 arreglos, retornar un objeto con 1
@@ -232,7 +241,7 @@ function lastVocalReplacer(words) {
             } 
         }
     }
-    console.log(someWordsToTest);
+    console.log(array);
 }
 
 lastVocalReplacer(someWordsToTest);
